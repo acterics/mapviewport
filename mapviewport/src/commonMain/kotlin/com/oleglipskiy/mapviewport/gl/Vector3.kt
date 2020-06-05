@@ -67,7 +67,10 @@ data class Vector3(var x: Scalar, var y: Scalar, var z: Scalar) {
     }
 
     operator fun times(quaternion: Quaternion): Vector3 {
-        TODO()
+        val qv = quaternion.xyz
+        val uv = qv cross this
+        val uuv = qv cross uv
+        return this + (uv * (2.0 * quaternion.w)) + (uuv * 2.0)
     }
 
     operator fun div(vector: Vector3): Vector3 {

@@ -20,6 +20,7 @@ object Versions {
             const val toothpick = "3.1.0"
             const val spek = "2.0.10"
             const val expekt = "0.5.0"
+            const val mapbox = "9.1.0"
         }
 
         object MultiPlatform {

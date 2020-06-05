@@ -1,4 +1,4 @@
-package com.oleglipskiy.extensions
+package com.oleglipskiy.mapviewport.sample.extensions
 
 import android.view.LayoutInflater
 import android.view.View

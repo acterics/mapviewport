@@ -62,5 +62,7 @@ dependencies {
     implementation(Deps.Libs.Android.toothpick.name)
     kapt(Deps.Libs.Android.toothpickKapt.name)
 
+    implementation(Deps.Libs.Android.mapbox.name)
+
     implementation(project(Modules.MultiPlatform.mapviewport.name))
 }

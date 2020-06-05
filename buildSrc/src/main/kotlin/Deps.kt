@@ -40,6 +40,10 @@ object Deps {
             val expekt = AndroidLibrary(
                 name = "com.winterbe:expekt:${Versions.Libs.Android.expekt}"
             )
+
+            val mapbox = AndroidLibrary(
+                name = "com.mapbox.mapboxsdk:mapbox-android-sdk:${Versions.Libs.Android.mapbox}"
+            )
         }
 
         object MultiPlatform {
@@ -65,6 +69,10 @@ object Deps {
                 iosX64 = "com.github.aakira:napier-iosX64:${Versions.Libs.MultiPlatform.napier}",
                 iosArm64 = "com.github.aakira:napier-iosArm64:${Versions.Libs.MultiPlatform.napier}"
             )
+        }
+        object JS {
+            val kotlinStdLib = "org.jetbrains.kotlin:kotlin-stdlib-js:${Versions.Libs.MultiPlatform.kotlinStdLib}"
+            val coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-core-js:${Versions.Libs.MultiPlatform.coroutines}"
         }
 
     }

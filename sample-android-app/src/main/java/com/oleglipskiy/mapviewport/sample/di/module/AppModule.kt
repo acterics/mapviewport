@@ -1,4 +1,4 @@
-package com.oleglipskiy.di.module
+package com.oleglipskiy.mapviewport.sample.di.module
 
 import android.content.Context
 import ru.terrakok.cicerone.Cicerone

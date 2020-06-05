@@ -1,10 +1,10 @@
-package com.oleglipskiy
+package com.oleglipskiy.mapviewport.sample
 
 import android.app.Application
 import com.github.aakira.napier.DebugAntilog
 import com.github.aakira.napier.Napier
-import com.oleglipskiy.di.DI
-import com.oleglipskiy.di.module.AppModule
+import com.oleglipskiy.mapviewport.sample.di.DI
+import com.oleglipskiy.mapviewport.sample.di.module.AppModule
 import com.oleglipskiy.mapviewport.BuildConfig
 import toothpick.Toothpick
 import toothpick.configuration.Configuration

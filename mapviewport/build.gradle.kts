@@ -21,6 +21,13 @@ kotlin {
             }
         }
     }
+    sourceSets {
+        val jsMain by getting {
+            dependencies {
+                implementation(Deps.Libs.JS.kotlinStdLib)
+            }
+        }
+    }
 }
 
 android {
