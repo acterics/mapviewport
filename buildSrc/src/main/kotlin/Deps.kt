@@ -44,6 +44,8 @@ object Deps {
             val mapbox = AndroidLibrary(
                 name = "com.mapbox.mapboxsdk:mapbox-android-sdk:${Versions.Libs.Android.mapbox}"
             )
+
+
         }
 
         object MultiPlatform {
@@ -69,9 +71,24 @@ object Deps {
                 iosX64 = "com.github.aakira:napier-iosX64:${Versions.Libs.MultiPlatform.napier}",
                 iosArm64 = "com.github.aakira:napier-iosArm64:${Versions.Libs.MultiPlatform.napier}"
             )
+
+            val spekDsl = MultiPlatformLibrary(
+                android = "org.spekframework.spek2:spek-dsl-jvm:${Versions.Libs.Android.spek}",
+                common = "org.spekframework.spek2:spek-dsl-metadata:${Versions.Libs.Android.spek}"
+            )
+            val spekRunner = MultiPlatformLibrary(
+                android = "org.spekframework.spek2:spek-runner-junit5:${Versions.Libs.Android.spek}"
+            )
+
+            val kotlinTest = MultiPlatformLibrary(
+                android = "org.jetbrains.kotlin:kotlin-test",
+                ios = "org.jetbrains.kotlin:kotlin-test",
+                common = "org.jetbrains.kotlin:kotlin-test"
+            )
         }
         object JS {
             val kotlinStdLib = "org.jetbrains.kotlin:kotlin-stdlib-js:${Versions.Libs.MultiPlatform.kotlinStdLib}"
+            val kotlinTest = "org.jetbrains.kotlin:kotlin-test"
             val coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-core-js:${Versions.Libs.MultiPlatform.coroutines}"
         }
 

@@ -1,9 +1,10 @@
 import de.mannodermaus.gradle.plugins.junit5.junitPlatform
+import org.jetbrains.kotlin.gradle.targets.js.webpack.KotlinWebpackOutput.Target.COMMONJS
 import org.jetbrains.kotlin.gradle.tasks.Kotlin2JsCompile
 
 plugins {
     id("com.android.library")
-    id("org.jetbrains.kotlin.multiplatform")
+    kotlin("multiplatform")
     id("kotlinx-serialization")
     id("dev.icerock.mobile.multiplatform")
     id("de.mannodermaus.android-junit5")
@@ -11,20 +12,23 @@ plugins {
 
 kotlin {
     js() {
-        browser()
-        nodejs()
-        compilations.all {
-            tasks.withType(Kotlin2JsCompile::class.java) {
-                kotlinOptions {
-                    moduleKind = "umd"
-                }
+        browser {
+            webpackTask {
+                output.libraryTarget = COMMONJS
             }
         }
+        nodejs()
     }
     sourceSets {
         val jsMain by getting {
             dependencies {
                 implementation(Deps.Libs.JS.kotlinStdLib)
+
+            }
+        }
+        val jsTest by getting {
+            dependencies {
+                implementation(Deps.Libs.JS.kotlinTest)
             }
         }
     }
@@ -55,6 +59,16 @@ tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile::class.java).all 
 dependencies {
     mppLibrary(Deps.Libs.MultiPlatform.kotlinStdLib)
     mppLibrary(Deps.Libs.MultiPlatform.coroutines)
+
+    "commonTestImplementation"(Deps.Libs.MultiPlatform.kotlinTest.common!!)
+
+    "androidTestImplementation"(Deps.Libs.MultiPlatform.spekDsl.android!!)
+    "androidTestImplementation"(Deps.Libs.MultiPlatform.spekRunner.android!!)
+    "androidTestImplementation"(Deps.Libs.Android.kotlinReflect.name)
+    "androidTestImplementation"(Deps.Libs.Android.expekt.name)
+
+    "iosArm64TestImplementation"(Deps.Libs.MultiPlatform.kotlinTest.iosArm64!!)
+    "iosX64TestImplementation"(Deps.Libs.MultiPlatform.kotlinTest.iosX64!!)
 }
 
 

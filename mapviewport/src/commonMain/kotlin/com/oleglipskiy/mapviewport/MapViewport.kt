@@ -10,16 +10,16 @@ class MapViewport(private val width: Scalar,
                   private val height: Scalar,
                   private val camera: MapCamera) {
 
-    private val fov = defaultFov
-    private val viewMatrix: Matrix4
-    private val inverseViewMatrix: Matrix4
-    private val projectionMatrix: Matrix4
-    private val inverseProjectionMatrix: Matrix4
-    private val viewProjectionMatrix: Matrix4
-    private val viewportMatrix: Matrix4
-    private val inverseViewportMatrix: Matrix4
-    private val pixelMatrix: Matrix4
-    private val inversePixelMatrix: Matrix4
+    internal val fov = defaultFov
+    internal val viewMatrix: Matrix4
+    internal val inverseViewMatrix: Matrix4
+    internal val projectionMatrix: Matrix4
+    internal val inverseProjectionMatrix: Matrix4
+    internal val viewProjectionMatrix: Matrix4
+    internal val viewportMatrix: Matrix4
+    internal val inverseViewportMatrix: Matrix4
+    internal val pixelMatrix: Matrix4
+    internal val inversePixelMatrix: Matrix4
 
     init {
         val point = MercatorProjection.project(camera.latitude, camera.longitude, camera.zoom)

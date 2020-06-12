@@ -1,12 +1,7 @@
 plugins {
     id("com.gradle.build-scan") version ("2.1")
+    id("co.uzzu.dotenv.gradle") version "1.1.0"
 }
-
-//buildscript {
-//    dependencies {
-//        classpath("")
-//    }
-//}
 
 allprojects {
     repositories {
@@ -31,6 +26,3 @@ buildScan {
     termsOfServiceAgree = "yes"
 }
 
-//tasks.register("clean", Delete::class).configure {
-//    delete(rootProject.buildDir)
-//}
