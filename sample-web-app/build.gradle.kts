@@ -47,7 +47,7 @@ kotlin.target {
     }
     browser {
         webpackTask {
-            output.libraryTarget = COMMONJS
+            output.libraryTarget = "umd"
             outputFileName = "main.js"
         }
         runTask {

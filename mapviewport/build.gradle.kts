@@ -14,7 +14,7 @@ kotlin {
     js() {
         browser {
             webpackTask {
-                output.libraryTarget = COMMONJS
+                output.libraryTarget = "umd"
             }
         }
         nodejs()
