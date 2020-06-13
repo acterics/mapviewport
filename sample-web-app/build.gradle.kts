@@ -63,3 +63,7 @@ kotlin.target {
 
     }
 }
+
+afterEvaluate {
+    tasks.findByPath("compileKotlinJs")!!.dependsOn("generateBuildConfig")
+}

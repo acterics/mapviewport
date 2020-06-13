@@ -1,5 +1,6 @@
 package mapboxgl
 
+import com.oleglipskiy.mapviewport.gl.Vector2
 import com.oleglipskiy.mapviewport.sample.extensions.jsObject
 import mapboxgl.LngLat
 
@@ -9,11 +10,6 @@ external interface MapEvent {
     val type: String
 }
 
-
-data class Vector2(
-    val x: Number,
-    val y: Number
-    )
 
 external interface BBox {
     val xMin: Number

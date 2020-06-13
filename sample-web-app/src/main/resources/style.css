@@ -2,7 +2,25 @@ html, body {
     height: 100%;
     margin: 0px;
 }
-#map {
+
+.mapHolder {
     width: 100%;
     height: 100%;
+}
+
+#map {
+    width: 100%;
+    height: 50%;
+    background-color: black;
+}
+
+.canvasHolder {
+    width: 100%;
+    height: 50%;
+    background-color: red;
+}
+
+.projectionOverlay {
+    width: 100%;
+    height: 100%
 }

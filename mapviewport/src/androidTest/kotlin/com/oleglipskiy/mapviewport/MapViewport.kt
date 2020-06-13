@@ -8,7 +8,7 @@ import com.winterbe.expekt.should
 import org.spekframework.spek2.Spek
 import org.spekframework.spek2.style.specification.describe
 
-object MapViewportTests : Spek({
+object MapViewportAndroidTests : Spek({
 
     describe("Test inverse matrix") {
         val width: Scalar = 375.0
@@ -46,21 +46,21 @@ object MapViewportTests : Spek({
 
     describe("Test point projection") {
         val viewport = MapViewport(
-            width = 375.0,
-            height = 812.0,
+            width = 403.0,
+            height = 383.0,
             camera = MapCamera(
-                longitude = 30.510769762390847,
-                latitude = 50.406390759358594,
-                zoom = 17.941584986438464,
-                pitch = 45.0,
-                bearing = 18.147708514121256
+                longitude = 30.5238,
+                latitude = 50.45466,
+                zoom = 15.0,
+                pitch = 60.0,
+                bearing = 0.0
             )
         )
-        val expectedPointX = 14.00001176735605
-        val expectedPointY = 11.333331648340868
+        val expectedPointX = 327.0
+        val expectedPointY = 246.0
 
-        val pointLat = 50.40792974939521
-        val pointLng = 30.510806842080342
+        val pointLat = 50.453380992754376
+        val pointLng = 30.52611290218144
 
         val projection = viewport.project(latitude = pointLat, longitude = pointLng)
 

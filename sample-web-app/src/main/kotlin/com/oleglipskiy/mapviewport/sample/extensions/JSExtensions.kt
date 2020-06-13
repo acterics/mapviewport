@@ -10,3 +10,8 @@ inline fun <T>jsObject(init: dynamic.() -> Unit): T {
     init(o)
     return o as T
 }
+
+inline fun append(receiver: dynamic, init: dynamic.() -> Unit): dynamic {
+    init(receiver)
+    return receiver
+}
