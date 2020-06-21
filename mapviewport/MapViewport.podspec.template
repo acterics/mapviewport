@@ -1,0 +1,37 @@
+Pod::Spec.new do |spec|
+    spec.name                     = '${NAME}'
+    spec.version                  = '${VERSION}'
+    spec.homepage                 = '${HOMEPAGE}'
+    spec.source                   = { :git => "Not Published", :tag => "Cocoapods/#{spec.name}/#{spec.version}" }
+    spec.authors                  = '${AUTHOR}'
+    spec.license                  = 'MIT'
+    spec.summary                  = '${SUMMARY}'
+
+    spec.vendored_frameworks      = "framework/#{spec.name}.framework"
+    spec.libraries                = "c++"
+    spec.module_name              = "#{spec.name}_umbrella"
+
+    spec.pod_target_xcconfig = {
+        'POD_PATH' => '${PATH}',
+        'MPP_LIBRARY_NAME' => '${NAME}',
+        'GRADLE_TASK[sdk=iphonesimulator*][config=*ebug]' => 'sync${NAME}DebugFrameworkIosX64',
+        'GRADLE_TASK[sdk=iphonesimulator*][config=*elease]' => 'sync${NAME}ReleaseFrameworkIosX64',
+        'GRADLE_TASK[sdk=iphoneos*][config=*ebug]' => 'sync${NAME}DebugFrameworkIosArm64',
+        'GRADLE_TASK[sdk=iphoneos*][config=*elease]' => 'sync${NAME}ReleaseFrameworkIosArm64'
+    }
+
+    spec.script_phases = [
+        {
+            :name => 'Compile Kotlin/Native',
+            :execution_position => :before_compile,
+            :shell_path => '/bin/sh',
+            :script => <<-SCRIPT
+echo "BEFORE COMPILE PHASE"
+echo "POD PATH: $POD_PATH"
+OUTPUT_DIR="$POD_PATH/build/cocoapods/framework"
+OUTPUT_NAME="$OUTPUT_DIR/#{spec.name}.framework"
+"$POD_PATH/../gradlew" -p "$POD_PATH" "$GRADLE_TASK"
+            SCRIPT
+        }
+    ]
+end

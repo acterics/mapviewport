@@ -1,6 +1,5 @@
+import com.oleglipskiy.mapviewport.podspecrenderer.withRenderPodspecTask
 import de.mannodermaus.gradle.plugins.junit5.junitPlatform
-import org.jetbrains.kotlin.gradle.targets.js.webpack.KotlinWebpackOutput.Target.COMMONJS
-import org.jetbrains.kotlin.gradle.tasks.Kotlin2JsCompile
 
 plugins {
     id("com.android.library")
@@ -9,6 +8,11 @@ plugins {
     id("dev.icerock.mobile.multiplatform")
     id("de.mannodermaus.android-junit5")
 }
+
+version = "0.0.1"
+description = "Map viewport projections library"
+val frameworkName = "MapViewport"
+
 
 kotlin {
     js() {
@@ -19,6 +23,9 @@ kotlin {
         }
         nodejs()
     }
+
+
+
     sourceSets {
         val jsMain by getting {
             dependencies {
@@ -71,9 +78,20 @@ dependencies {
     "iosX64TestImplementation"(Deps.Libs.MultiPlatform.kotlinTest.iosX64!!)
 }
 
-
-
 setupFramework(
-    name = "MapViewport",
+    name = frameworkName,
     exports = listOf()
 )
+
+withRenderPodspecTask {
+    options = mapOf(
+        "NAME" to frameworkName,
+        "VERSION" to project.version.toString(),
+        "PATH" to "$projectDir",
+        "AUTHOR" to "Oleg Lipskiy",
+        "SUMMARY" to "${project.description}",
+        "HOMEPAGE" to "https://github.com/acterics/mapviewport"
+    )
+    podspecPath = "${buildDir}/cocoapods/${frameworkName}.podspec"
+    templatePath = "${projectDir}/${frameworkName}.podspec.template"
+}

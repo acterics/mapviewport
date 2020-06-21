@@ -23,4 +23,5 @@ enableFeaturePreview("GRADLE_METADATA")
 include(Modules.MultiPlatform.mapviewport.name)
 include(":sample-android-app")
 include(":sample-web-app")
+include(":sample-ios-app")
 

@@ -1,0 +1,12 @@
+//
+//  debug.xcconfig
+//  SampleIOSApp
+//
+//  Created by Oleg Lipskiy on 21.06.2020.
+//  Copyright © 2020 Oleg Lipskiy. All rights reserved.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+#include "../Pods/Target Support Files/Pods-SampleIOSApp/Pods-SampleIOSApp.debug.xcconfig"  
+#include "../build/gradle.xcconfig"

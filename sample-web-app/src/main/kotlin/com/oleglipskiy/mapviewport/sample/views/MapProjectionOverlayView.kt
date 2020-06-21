@@ -34,9 +34,6 @@ class MapProjectionOverlayView(parent: HTMLElement) {
     fun draw() {
         val context2D: CanvasRenderingContext2D = element.getContext("2d") as CanvasRenderingContext2D
         context2D.clearRect(0.0, 0.0, element.width.toDouble(), element.height.toDouble())
-//        context2D.fillStyle = "#FF0000"
-//
-//        context2D.fillRect(0.0, 0.0, element.offsetWidth.toDouble(), element.offsetHeight.toDouble())
 
         context2D.fillStyle = "#0000FF"
         context2D.strokeStyle = "00ffff"

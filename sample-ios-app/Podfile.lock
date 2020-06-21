@@ -1,0 +1,27 @@
+PODS:
+  - Mapbox-iOS-SDK (5.9.0):
+    - MapboxMobileEvents (= 0.10.2)
+  - MapboxMobileEvents (0.10.2)
+  - MapViewport (0.0.1)
+
+DEPENDENCIES:
+  - Mapbox-iOS-SDK (~> 5.9)
+  - MapViewport (from `../mapviewport/build/cocoapods`)
+
+SPEC REPOS:
+  trunk:
+    - Mapbox-iOS-SDK
+    - MapboxMobileEvents
+
+EXTERNAL SOURCES:
+  MapViewport:
+    :path: "../mapviewport/build/cocoapods"
+
+SPEC CHECKSUMS:
+  Mapbox-iOS-SDK: a5915700ec84bc1a7f8b3e746d474789e35b7956
+  MapboxMobileEvents: 2bc0ca2eedb627b73cf403258dce2b2fa98074a6
+  MapViewport: a26226dd0feb01ea883139a6c630118ae8c5b15d
+
+PODFILE CHECKSUM: 0f6f3191867d8e6094df736952bff14986f528b6
+
+COCOAPODS: 1.8.4

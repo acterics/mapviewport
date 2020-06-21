@@ -50,7 +50,6 @@ class MapView(
         val width = element.offsetWidth.toDouble()
         val height = element.offsetHeight.toDouble()
         val point = event.point
-        val mapPoint = event.lngLat
         val mapViewport = MapViewport(
             width = width,
             height = height,
@@ -74,7 +73,7 @@ class MapView(
             val polygonHeight = feature.properties.height as? Double ?: return@mapIndexedNotNull null
             ExtrudedPolygon(
                 id = index,
-                vertices = vertices.map { pointArray -> Vector2(pointArray[0], pointArray   [1]) },
+                vertices = vertices.map { pointArray -> Vector2(pointArray[0], pointArray[1]) },
                 altitude = polygonHeight,
                 payload = null
             )
